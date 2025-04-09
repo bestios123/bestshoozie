@@ -1,0 +1,734 @@
+/* ВИЗНАЧЕННЯ CSS ЗМІННИХ (КОЛЬОРІВ) */
+:root {
+    --bg-color: #f8f8f8;
+    /* Фон сторінки */
+    --text-color: #333;
+    /* Основний текст */
+    --card-bg: #fff;
+    /* Фон карток */
+    --header-bg: #333;
+    /* Фон хедера */
+    --header-text: #fff;
+    /* Текст хедера */
+    --subtitle-color: #ccc;
+    /* Колір підзаголовка в хедері */
+    --footer-bg: #333;
+    /* Фон футера */
+    --footer-text: #ccc;
+    /* Текст футера */
+    --accent-color: #007bff;
+    /* Основний акцентний (синій) */
+    --accent-hover: #0056b3;
+    /* Акцентний при наведенні */
+    --button-text: #fff;
+    /* Текст на основних кнопках */
+    --hero-section-bg: #e9ecef;
+    /* Фон секції Hero */
+    --info-section-bg: #f1f1f1;
+    /* Фон інфо секції */
+    --info-card-bg: #fff;
+    /* Фон карток інфо секції */
+    --info-card-title: var(--accent-color);
+    /* Колір заголовків в інфо */
+    --chatbot-bg: #e2f3ff;
+    /* Фон секції бота */
+    --chatbot-border: #b8e0ff;
+    /* Рамка секції бота */
+    --chatbot-title: #0056b3;
+    /* Заголовок секції бота */
+    --chatbot-marker: #28a745;
+    /* Колір маркерів списку */
+    --filter-bg: #eee;
+    /* Фон кнопки фільтра */
+    --filter-text: #333;
+    /* Текст кнопки фільтра */
+    --filter-border: #ccc;
+    /* Рамка кнопки фільтра */
+    --filter-hover-bg: #ddd;
+    /* Фон кнопки фільтра при наведенні */
+    --filter-active-bg: var(--accent-color);
+    /* Фон активного фільтра */
+    --filter-active-text: var(--button-text);
+    /* Текст активного фільтра */
+    --details-button-bg: #6c757d;
+    /* Фон кнопки деталей */
+    --details-button-hover: #5a6268;
+    /* Фон кнопки деталей при наведенні */
+    --details-button-text: #fff;
+    /* Текст кнопки деталей */
+    --price-color: #28a745;
+    /* Колір ціни */
+    --link-color: var(--accent-color);
+    /* Колір посилань */
+    --link-hover-decoration: underline;
+    /* Підкреслення при наведенні на посилання */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    /* Колір тіні */
+    --border-color: #ddd;
+    /* Основний колір рамок */
+    --description-color: #666;
+    /* Колір опису товару */
+}
+
+/* СТИЛІ ДЛЯ ТЕМНОЇ ТЕМИ */
+body.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --card-bg: #2c2c2c;
+    --header-bg: #111;
+    --header-text: #e0e0e0;
+    --subtitle-color: #888;
+    --footer-bg: #111;
+    --footer-text: #aaa;
+    --accent-color: #4dabf7;
+    /* Світліший синій */
+    --accent-hover: #228be6;
+    --button-text: #111;
+    /* Темний текст на світлих кнопках */
+    --hero-section-bg: #252525;
+    --info-section-bg: #222;
+    --info-card-bg: #2c2c2c;
+    --info-card-title: var(--accent-color);
+    --chatbot-bg: #1f3a4d;
+    /* Темніший синій фон */
+    --chatbot-border: #365e7d;
+    --chatbot-title: #74c0fc;
+    /* Світліший заголовок */
+    --chatbot-marker: #40c057;
+    /* Світліший зелений маркер */
+    --filter-bg: #444;
+    --filter-text: #e0e0e0;
+    --filter-border: #555;
+    --filter-hover-bg: #555;
+    --filter-active-bg: var(--accent-color);
+    --filter-active-text: #111;
+    --details-button-bg: #555;
+    --details-button-hover: #666;
+    --details-button-text: #e0e0e0;
+    --price-color: #40c057;
+    /* Світліший зелений */
+    --link-color: var(--accent-color);
+    --shadow-color: rgba(255, 255, 255, 0.05);
+    --border-color: #444;
+    --description-color: #bbb;
+}
+
+/* Загальні стилі (з використанням змінних) */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* Сучасніший шрифт */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Плавний перехід */
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: var(--link-hover-decoration);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Хедер */
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 15px 0;
+    /* Трохи менше */
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
+}
+
+header .container {
+    position: relative;
+    /* Для позиціонування кнопки теми */
+    display: flex;
+    /* Розмістити елементи в ряд (для десктопа) */
+    flex-direction: column;
+    /* Стандартно в стовпчик */
+    align-items: center;
+}
+
+
+header h1 {
+    margin: 0 0 5px 0;
+    font-size: 2.2em;
+}
+
+header .subtitle {
+    margin: 0 0 15px 0;
+    font-style: italic;
+    color: var(--subtitle-color);
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav a {
+    color: var(--header-text);
+    margin: 0 15px;
+    font-size: 1.1em;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+header nav a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom-color: var(--accent-color);
+}
+
+/* Кнопка перемикання теми */
+#theme-toggle-button {
+    position: absolute;
+    top: 50%;
+    /* Вирівняти по центру хедера */
+    right: 20px;
+    transform: translateY(-50%);
+    /* Точне центрування */
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 1000;
+    box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+#theme-toggle-button:hover {
+    transform: translateY(-50%) scale(1.1);
+    /* Зберегти центрування при збільшенні */
+}
+
+#theme-toggle-button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Секція Hero */
+.hero-section {
+    /* Використовуємо клас */
+    text-align: center;
+    padding: 50px 15px;
+    background-color: var(--hero-section-bg);
+    border-radius: 8px;
+    /* Закруглення */
+    margin-top: 20px;
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    /* Колір тексту теж змінний */
+}
+
+.hero-section p {
+    color: var(--text-color);
+    opacity: 0.9;
+    /* Трохи прозоріший текст */
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--button-text);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    /* Трохи жирніший */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-hover);
+    color: var(--button-text);
+    /* Перевизначити на випадок темної теми */
+    text-decoration: none;
+    transform: translateY(-2px);
+    /* Легкий ефект підняття */
+}
+
+/* Секція Каталогу */
+.catalog-section {
+    /* Використовуємо клас */
+    padding-top: 40px;
+}
+
+.catalog-section h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.catalog-section>p {
+    /* Стиль для параграфа під заголовком */
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--description-color);
+}
+
+/* Фільтри категорій */
+.category-filters {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.filter-button {
+    background-color: var(--filter-bg);
+    color: var(--filter-text);
+    border: 1px solid var(--filter-border);
+    padding: 9px 18px;
+    /* Трохи більші */
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 20px;
+    /* Більш заокруглені */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.2s ease;
+    font-size: 0.95em;
+}
+
+.filter-button:hover {
+    background-color: var(--filter-hover-bg);
+    border-color: var(--accent-color);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.filter-button.active {
+    background-color: var(--filter-active-bg);
+    color: var(--filter-active-text);
+    border-color: var(--filter-active-bg);
+    font-weight: 500;
+}
+
+/* Сітка товарів */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--shadow-color);
+    /* Більша тінь при наведенні */
+}
+
+.product-card img {
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    margin-top: 0;
+    flex-grow: 1;
+    color: var(--text-color);
+    /* Змінний колір */
+}
+
+.product-card .description {
+    font-size: 0.9em;
+    color: var(--description-color);
+    margin-bottom: 10px;
+    min-height: 3em;
+}
+
+.product-card .price {
+    font-size: 1.15em;
+    /* Трохи більша ціна */
+    font-weight: bold;
+    color: var(--price-color);
+    margin-bottom: 15px;
+}
+
+.details-button {
+    background-color: var(--details-button-bg);
+    color: var(--details-button-text);
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.details-button:hover {
+    background-color: var(--details-button-hover);
+    color: var(--details-button-text);
+    /* Перевизначити */
+    text-decoration: none;
+    transform: scale(1.05);
+    /* Легке збільшення */
+}
+
+/* Секція Інформації */
+.info-section {
+    background-color: var(--info-section-bg);
+    padding: 40px 15px;
+    margin-top: 40px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.info-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    /* Змінний колір */
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.info-grid article {
+    background-color: var(--info-card-bg);
+    padding: 25px;
+    /* Трохи більше */
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px var(--shadow-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.info-grid h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--info-card-title);
+    /* Змінний колір */
+    font-size: 1.3em;
+}
+
+/* Секція Чат-Бота */
+.chatbot-section {
+    background-color: var(--chatbot-bg);
+    border: 1px solid var(--chatbot-border);
+    border-radius: 8px;
+    padding: 35px 15px;
+    /* Трохи більше */
+    margin-top: 40px;
+    text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.chatbot-section h2 {
+    color: var(--chatbot-title);
+    margin-bottom: 15px;
+}
+
+.chatbot-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: inline-block;
+    text-align: left;
+}
+
+.chatbot-section ul li {
+    margin-bottom: 10px;
+    /* Збільшено */
+    position: relative;
+    padding-left: 25px;
+    /* Збільшено */
+    font-size: 1.05em;
+    /* Трохи більший текст списку */
+}
+
+.chatbot-section ul li::before {
+    content: '✔';
+    color: var(--chatbot-marker);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    /* Трохи опустити */
+    font-weight: bold;
+}
+
+.chatbot-section i {
+    display: block;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: var(--description-color);
+}
+
+/* --- Modal Styles --- */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1001;
+    /* Sit on top (вище ніж кнопка теми) */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Black w/ opacity - overlay */
+    padding-top: 60px;
+    /* Location of the box */
+    opacity: 0;
+    /* Start hidden for transition */
+    visibility: hidden;
+    /* Start hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.active {
+    /* Class to show modal */
+    display: block;
+    /* Use block to respect padding-top */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: var(--card-bg, #fefefe);
+    margin: auto;
+    padding: 30px;
+    border: 1px solid var(--border-color, #888);
+    width: 80%;
+    /* Could be more restrictive */
+    max-width: 700px;
+    /* Max width */
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+    /* Застосувати колір тексту теми */
+    transform: scale(0.9);
+    /* Start smaller for transition */
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+    /* Scale up when active */
+}
+
+/* Додайте або змініть цей блок в style.css */
+#modal-img {
+    display: block;
+    /* Робить зображення блоковим елементом, щоб margin: auto працював */
+    max-width: 100%;
+    /* Ключова властивість: Зображення не буде ширшим за свій контейнер (.modal-body) */
+    height: auto;
+    /* Дозволяє висоті змінюватися пропорційно ширині */
+    margin: 0 auto 20px auto;
+    /* Центрує зображення по горизонталі і додає відступ знизу */
+    border-radius: 5px;
+    /* Залишаємо закруглення кутів */
+    object-fit: contain;
+    /* Додатково гарантує, що все зображення поміститься, зберігаючи пропорції */
+}
+
+/* The Close Button */
+.close-button {
+    color: var(--description-color, #aaa);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--text-color, black);
+    /* Змінити колір при наведенні */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body {
+    text-align: center;
+    /* Центрувати контент */
+}
+
+.modal-body h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    /* Застосувати колір тексту теми */
+}
+
+.modal-body p {
+    margin-bottom: 10px;
+    color: var(--text-color);
+    /* Застосувати колір тексту теми */
+    opacity: 0.9;
+}
+
+/* Адаптивність для модального вікна */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .modal-body #modal-img {
+        max-width: 80%;
+    }
+}
+
+/* Футер */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 25px 0;
+    /* Трохи більше */
+    margin-top: 50px;
+    /* Збільшено відступ */
+    border-top: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+footer a {
+    color: var(--link-color);
+    /* Використовувати змінну */
+}
+
+footer a:hover {
+    color: var(--accent-hover);
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .hero-section h2 {
+        font-size: 2em;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    header .container {
+        flex-direction: column;
+        /* В стовпчик на мобільних */
+        text-align: center;
+    }
+
+    header nav {
+        margin-top: 15px;
+    }
+
+    header nav a {
+        margin: 0 10px;
+        font-size: 1em;
+    }
+
+    #theme-toggle-button {
+        top: 15px;
+        /* Повернути наверх для мобільних */
+        right: 15px;
+        transform: none;
+        /* Скасувати вертикальне центрування */
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-button {
+        padding: 7px 12px;
+        /* Ще трохи менше */
+        font-size: 0.85em;
+    }
+
+    .product-card {
+        padding: 15px;
+    }
+
+    .product-card h3 {
+        font-size: 1.05em;
+    }
+
+    .hero-section h2 {
+        font-size: 1.8em;
+    }
+
+    .cta-button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}

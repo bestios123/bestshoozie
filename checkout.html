@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформлення Замовлення - Крок Вперед</title>
+    <link rel="stylesheet" href="style.css"> <!-- Підключіть ваші основні стилі -->
+    <style>
+        /* Додаткові стилі для цієї сторінки */
+        .checkout-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--card-bg, #fff);
+            /* Використовуємо змінні */
+            border: 1px solid var(--border-color, #ddd);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px var(--shadow-color, rgba(0, 0, 0, 0.1));
+            color: var(--text-color);
+        }
+
+        .checkout-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--text-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color, #ccc);
+            border-radius: 5px;
+            box-sizing: border-box;
+            /* Важливо */
+            background-color: var(--bg-color);
+            /* Фон інпуту */
+            color: var(--text-color);
+            /* Колір тексту в інпуті */
+        }
+
+        /* Стилізація псевдо-полів карти */
+        .fake-card-info {
+            border: 1px dashed var(--border-color, #ccc);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            background-color: rgba(128, 128, 128, 0.05);
+            /* Легкий сірий фон */
+        }
+
+        .fake-card-info p {
+            font-size: 0.9em;
+            color: var(--description-color);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .fake-card-inputs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .fake-card-inputs .form-group {
+            flex: 1;
+            /* Розтягнути інпути */
+            margin-bottom: 0;
+            /* Забрати нижній відступ у flex */
+        }
+
+        .fake-card-inputs .cvv {
+            flex-basis: 80px;
+            /* Фіксована ширина для CVV */
+            flex-grow: 0;
+        }
+
+        #submit-order-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--price-color, #28a745);
+            /* Зелений для підтвердження */
+            color: var(--button-text, #fff);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        #submit-order-button:hover {
+            background-color: #218838;
+            /* Темніший зелений */
+        }
+
+        #confirmation-message {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e2f3ff;
+            border: 1px solid #b8e0ff;
+            color: #0056b3;
+            border-radius: 5px;
+            display: none;
+            /* Сховано за замовчуванням */
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--link-color);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Можна додати хедер і футер як на головній -->
+
+    <div class="checkout-container">
+        <h2>Оформлення Замовлення</h2>
+        <form id="checkout-form" onsubmit="return handleOrderSubmit(event)">
+            <div class="form-group">
+                <label for="name">Ваше ім'я:</label>
+                <input type="text" id="name" name="name" required placeholder="Іван Петренко">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="example@mail.com">
+            </div>
+            <div class="form-group">
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+380 XX XXX XX XX">
+            </div>
+            <div class="form-group">
+                <label for="address">Адреса доставки (Нова Пошта):</label>
+                <input type="text" id="address" name="address" required placeholder="м. Київ, відділення №1">
+            </div>
+
+            <!-- Секція симуляції вводу карти -->
+            <div class="fake-card-info">
+                <p><strong>Симуляція оплати:</strong> Будь ласка, не вводьте реальні дані картки. Це лише демонстрація.
+                </p>
+                <div class="form-group">
+                    <label for="card-number">Номер картки (вигаданий):</label>
+                    <input type="text" id="card-number" name="card-number" placeholder="XXXX XXXX XXXX XXXX">
+                </div>
+                <div class="fake-card-inputs">
+                    <div class="form-group">
+                        <label for="expiry-date">Термін дії (MM/YY):</label>
+                        <input type="text" id="expiry-date" name="expiry-date" placeholder="12/25">
+                    </div>
+                    <div class="form-group cvv">
+                        <label for="cvv">CVV (XXX):</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" id="submit-order-button">Оформити замовлення</button>
+        </form>
+        <div id="confirmation-message">
+            Дякуємо за ваше замовлення! Наш менеджер скоро зв'яжеться з вами для підтвердження деталей.
+        </div>
+        <a href="index.html" class="back-link">Повернутися на головну</a>
+    </div>
+
+    <script>
+        // Проста функція для обробки форми (симуляція)
+        function handleOrderSubmit(event) {
+            event.preventDefault(); // Запобігти реальній відправці форми
+            const form = document.getElementById('checkout-form');
+            const confirmationMessage = document.getElementById('confirmation-message');
+            const submitButton = document.getElementById('submit-order-button');
+
+            // Можна додати просту валідацію полів, якщо потрібно
+
+            // Сховати форму і показати повідомлення
+            form.style.display = 'none';
+            confirmationMessage.style.display = 'block';
+
+            return false; // Запобігти подальшій обробці
+        }
+
+        // Код для перемикання теми, якщо потрібно і на цій сторінці
+        // (скопіюйте відповідний JS з основного script.js)
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleButton = document.getElementById('theme-toggle-button'); // Потрібно додати кнопку в HTML цієї сторінки
+            const bodyElement = document.body;
+            const applyTheme = (theme) => { /* ... код функції applyTheme ... */ };
+            let currentTheme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            applyTheme(currentTheme);
+            // ... додати обробники для кнопки та зміни системної теми ...
+        });
+    </script>
+    <!-- Можна додати футер -->
+</body>
+
+</html>
