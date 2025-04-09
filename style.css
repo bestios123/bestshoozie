@@ -667,6 +667,130 @@ footer a:hover {
     color: var(--accent-hover);
 }
 
+/* --- FAQ Section Styles --- */
+.faq-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    background-color: var(--card-bg, #fff);
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    /* Внутрішній відступ для details */
+    transition: background-color 0.3s ease;
+}
+
+.faq-item summary {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 0;
+    /* Додатковий відступ для клікабельної області */
+    outline: none;
+    /* Прибрати стандартний контур фокусу */
+    position: relative;
+    /* Для потенційного кастомного маркера */
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+/* Стилізація стандартного маркера (стрілочки) */
+.faq-item summary::marker {
+    color: var(--accent-color);
+}
+
+/* Альтернатива - прибрати маркер:
+.faq-item summary { list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+*/
+
+.faq-item summary:hover {
+    color: var(--accent-color);
+}
+
+.faq-item p,
+.faq-item ul,
+.faq-item table {
+    margin-top: 15px;
+    padding-left: 10px;
+    /* Невеликий відступ для контенту */
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.faq-item ul {
+    padding-left: 30px;
+    /* Стандартний відступ для списку */
+}
+
+.faq-item ul li {
+    margin-bottom: 5px;
+}
+
+/* --- Blog Section Styles --- */
+.blog-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.blog-section h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.blog-section>p {
+    /* Стиль для примітки під заголовком */
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: italic;
+    color: var(--description-color);
+}
+
+.blog-post {
+    background-color: var(--card-bg, #fff);
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 4px var(--shadow-color, rgba(0, 0, 0, 0.08));
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.blog-post h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--accent-color);
+}
+
+.blog-post .meta {
+    font-size: 0.9em;
+    color: var(--description-color);
+    margin-bottom: 15px;
+}
+
+.blog-post .details-button {
+    margin-top: 15px;
+    background-color: transparent;
+    color: var(--accent-color);
+    padding: 5px 0;
+    /* Менші відступи, виглядає як посилання */
+    border: none;
+    text-decoration: underline;
+}
+
+.blog-post .details-button:hover {
+    background-color: transparent;
+    color: var(--accent-hover);
+    text-decoration: none;
+}
+
 /* Адаптивність */
 @media (max-width: 768px) {
     header h1 {
