@@ -791,6 +791,229 @@ footer a:hover {
     text-decoration: none;
 }
 
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    /* Світлий фон для сторінки */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.video-comparison-container {
+    display: flex;
+    /* Використовуємо Flexbox для розташування елементів */
+    flex-wrap: wrap;
+    /* Дозволяємо переноситись на новий рядок */
+    justify-content: space-around;
+    /* Розподіляємо простір між елементами */
+    gap: 20px;
+    /* Відстань між блоками відео */
+}
+
+.video-item {
+    flex: 1 1 300px;
+    /* Дозволяє елементам рости/стискатись, базова ширина 300px */
+    /* Щоб гарантувати приблизно 3 колонки на широких екранах: */
+    /* max-width: calc(33.333% - 20px); */
+    /* (Віднімаємо частину gap) */
+    min-width: 280px;
+    /* Мінімальна ширина перед переносом */
+    background-color: var(--bg-color);
+    /* Білий фон для кожного блоку */
+    padding: 15px;
+    border-radius: 8px;
+    /* Закруглені кути */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Легка тінь */
+    text-align: center;
+    /* Центруємо опис під відео */
+    margin-bottom: 20px;
+    /* Додатковий відступ знизу */
+}
+
+.video-item video {
+    display: block;
+    /* Робить відео блочним елементом */
+    width: 100%;
+    /* Відео займає всю ширину контейнера .video-item */
+    max-width: 100%;
+    /* Гарантує, що відео не вилізе за межі */
+    height: auto;
+    /* Зберігає пропорції відео */
+    margin-bottom: 10px;
+    /* Відступ між відео та описом */
+    border-radius: 4px;
+    /* Невелике закруглення для самого відео */
+}
+
+.video-description {
+    font-size: 0.9em;
+    color: #e7e7e7;
+    text-align: left;
+    /* Вирівнюємо текст опису по лівому краю */
+    padding: 0 5px;
+    /* Невеликі відступи з боків тексту */
+}
+
+.video-description strong {
+    color: #b4b4b4;
+    display: block;
+    /* Робимо заголовок опису окремим рядком */
+    margin-bottom: 5px;
+}
+
+/* Стилі для окремих секцій сервісів */
+/* === ОНОВЛЕНІ СТИЛІ ДЛЯ ОКРЕМИХ СЕКЦІЙ СЕРВІСІВ (Genmo, ElevenLabs) === */
+
+.service-showcase {
+    background-color: var(--bg-color);
+    /* Використовуємо змінну для фону картки */
+    border: 1px solid var(--border-color);
+    /* Додаємо рамку зі змінною */
+    border-radius: 8px;
+    /* Залишаємо заокруглення */
+    padding: 25px;
+    /* Трохи більше відступів, як в .info-grid article */
+    margin-top: 40px;
+    /* Узгоджуємо верхній відступ з іншими секціями (.info-section, .chatbot-section) */
+    box-shadow: 0 2px 5px var(--shadow-color);
+    /* Використовуємо змінну для тіні */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    /* Додаємо перехід для теми */
+}
+
+.Eleven11 {
+    color: #000000;
+    display: block;
+    /* Робимо заголовок опису окремим рядком */
+    margin-bottom: 5px;
+}
+
+.service-showcase h2 {
+    text-align: center;
+    margin-top: 0;
+    /* Прибираємо верхній margin, бо є padding у батька */
+    margin-bottom: 20px;
+    color: #000000;
+    /* Основний колір тексту для заголовка */
+    border-bottom: 1px solid var(--border-color);
+    /* Використовуємо змінну для лінії */
+    padding-bottom: 15px;
+    /* Трохи збільшений відступ під лінією */
+    font-size: 1.5em;
+    /* Можна налаштувати відповідно до інших h2 */
+}
+
+.media-content {
+    text-align: center;
+    margin-bottom: 20px;
+    /* Трохи збільшений відступ під медіа */
+}
+
+/* Стилізація відео та аудіо плеєрів */
+.service-showcase video,
+.service-showcase audio {
+    display: block;
+    width: 100%;
+    max-width: 640px;
+    /* Обмеження ширини залишаємо */
+    height: auto;
+    margin: 0 auto 10px auto;
+    /* Центрування та відступ знизу */
+    border-radius: 4px;
+    /* Невелике заокруглення для плеєра */
+    border: 1px solid var(--border-color);
+    /* Додаткова рамка для плеєрів, якщо потрібно */
+}
+
+/* Стилізація опису сервісу */
+.service-description {
+    font-size: 0.95em;
+    color: #111;
+    /* Використовуємо змінну для тексту опису */
+    text-align: left;
+    line-height: 1.7;
+    padding: 0 10px;
+    /* Залишаємо невеликі відступи */
+}
+
+.service-description strong {
+    color: var(--accent-color);
+    /* Основний колір тексту для підзаголовка */
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    /* Трохи збільшений шрифт для акценту */
+    font-weight: 600;
+    /* Трохи жирніший */
+}
+
+/* Адаптивність для медіа контенту (залишаємо без змін, виглядає ок) */
+@media (max-width: 768px) {
+
+    .service-showcase video,
+    .service-showcase audio {
+        max-width: 100%;
+        /* На менших екранах дозволяємо займати всю ширину */
+    }
+
+    .service-showcase {
+        padding: 20px;
+        /* Трохи зменшимо відступи на мобільних */
+    }
+
+    .service-showcase h2 {
+        font-size: 1.3em;
+        padding-bottom: 10px;
+    }
+}
+
+/* === КІНЕЦЬ ОНОВЛЕНИХ СТИЛІВ === */
+
+/*
+   ВАЖЛИВО: Переконайся, що цей блок CSS замінює попередній блок для
+   .service-showcase, .media-content, .service-description і т.д.,
+   а НЕ додається ПОВЕРХ нього. Також, перевір, чи не конфліктують
+   правила в медіа-запитах з іншими правилами.
+
+   Можливо, тобі також потрібно буде видалити окремі стилі для body, h1,
+   .video-comparison-container, .video-item, .video-description з мого
+   попереднього коду, якщо вони вже визначені у твоєму основному CSS файлі,
+   щоб уникнути дублювання та конфліктів. Залиш тільки те, що стосується
+   нових блоків .service-showcase.
+*/
+
+/* Адаптивність: На менших екранах (напр., планшети) - 2 колонки */
+@media (max-width: 768px) {
+    .video-item {
+        flex-basis: calc(50% - 20px);
+        /* Спробувати вмістити 2 елементи */
+    }
+}
+
+/* Адаптивність: На дуже маленьких екранах (напр., телефони) - 1 колонка */
+@media (max-width: 480px) {
+    .video-item {
+        flex-basis: 100%;
+        /* Один елемент на всю ширину */
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    body {
+        padding: 10px;
+    }
+}
+
 /* Адаптивність */
 @media (max-width: 768px) {
     header h1 {
